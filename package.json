@@ -25,9 +25,24 @@
             "type": "object",
             "title": "Laravel goto components configuration",
             "properties": {
-                "laravel_goto_components.regex": {
+                "laravel_goto_components.regex.blade": {
                     "type": "string",
                     "default": "(?<=<x-)(?!slot)[a-z.-]+",
+                    "description": "Custom regex for matching strings"
+				},
+                "laravel_goto_components.regex.livewire": {
+                    "type": "string",
+                    "default": "(?<=<livewire:)[a-z.-]+|(?<=@livewire\\([\\'\"])[a-z.-]+",
+                    "description": "Custom regex for matching strings"
+				},
+                "laravel_goto_components.regex.livewireComponent": {
+                    "type": "string",
+                    "default": "(?<=<livewire:)[a-z.-]+",
+                    "description": "Custom regex for matching strings"
+				},
+                "laravel_goto_components.regex.livewireDirective": {
+                    "type": "string",
+                    "default": "(?<=@livewire\\([\\'\"])[a-z.-]+",
                     "description": "Custom regex for matching strings"
 				}
 			}
