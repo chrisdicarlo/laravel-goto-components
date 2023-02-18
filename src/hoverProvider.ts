@@ -16,9 +16,13 @@ export default class HoverProvider implements BaseHoverProvider {
     doc: TextDocument,
     position: Position
   ): ProviderResult<Hover> {
+
     const config = workspace.getConfiguration("laravel_goto_components");
+    console.log(config.regex);
     const regex = new RegExp(config.regex);
     const range = doc.getWordRangeAtPosition(position, regex);
+
+    console.log('HoverProvider.provideHover');
 
     if (!range) {
       return;
@@ -27,10 +31,10 @@ export default class HoverProvider implements BaseHoverProvider {
     const componentName = doc.getText(range);
     const workspacePath = workspace.getWorkspaceFolder(doc.uri)?.uri.fsPath;
     let componentPath = nameToPath(componentName);
-    
+
     if (!existsSync(workspacePath + componentPath)) {
       componentPath = nameToIndexPath(componentName);
-      
+
       if (!existsSync(workspacePath + componentPath)) {
         return;
       }

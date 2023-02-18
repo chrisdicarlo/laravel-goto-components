@@ -34,16 +34,6 @@
                     "type": "string",
                     "default": "(?<=<livewire:)[a-z.-]+|(?<=@livewire\\([\\'\"])[a-z.-]+",
                     "description": "Custom regex for matching strings"
-				},
-                "laravel_goto_components.regex.livewireComponent": {
-                    "type": "string",
-                    "default": "(?<=<livewire:)[a-z.-]+",
-                    "description": "Custom regex for matching strings"
-				},
-                "laravel_goto_components.regex.livewireDirective": {
-                    "type": "string",
-                    "default": "(?<=@livewire\\([\\'\"])[a-z.-]+",
-                    "description": "Custom regex for matching strings"
 				}
 			}
 		}
