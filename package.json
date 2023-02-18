@@ -1,6 +1,6 @@
 {
 	"name": "laravel-goto-components",
-	"displayName": "laravel-goto-components",
+	"displayName": "laravel-goto-components - chrisdicarlo",
 	"description": "Quick jump to components",
 	"icon": "icon.png",
 	"version": "1.2.0",
@@ -25,7 +25,7 @@
             "type": "object",
             "title": "Laravel goto components configuration",
             "properties": {
-                "laravel_goto_components.regex.blade": {
+                    "laravel_goto_components.regex.blade": {
                     "type": "string",
                     "default": "(?<=<x-)(?!slot)[a-z.-]+",
                     "description": "Custom regex for matching strings"

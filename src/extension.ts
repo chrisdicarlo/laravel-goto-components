@@ -1,22 +1,25 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import { ExtensionContext, languages } from "vscode";
-import HoverProvider from "./hoverProvider";
-import LinkProvider from "./linkProvider";
+import { ExtensionContext, languages, window, workspace } from "vscode";
+import { updateLinks } from "./UpdateLinks";
+import BladeLinkProvider from "./BladeLinkProvider";
+
+window.onDidChangeActiveTextEditor((editor) => {
+    if (editor) {
+      const document = editor.document;
+      const disposable = workspace.onDidChangeTextDocument((event) => {
+        if (event.document === document) {
+          updateLinks(document);
+        }
+      });
+    }
+  });
 
 export function activate(context: ExtensionContext) {
-    console.log('activations');
-    let hover = languages.registerHoverProvider(
+    let bladeLink = languages.registerDocumentLinkProvider(
         "blade",
-        new HoverProvider()
-    );
-    let link = languages.registerDocumentLinkProvider(
-        "blade",
-        new LinkProvider()
+        new BladeLinkProvider()
     );
 
-    context.subscriptions.push(hover, link);
+    context.subscriptions.push(bladeLink);
 }
 
-// this method is called when your extension is deactivated
 export function deactivate() { }
