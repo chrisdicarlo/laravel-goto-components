@@ -3,7 +3,7 @@
 	"displayName": "laravel-goto-components - chrisdicarlo",
 	"description": "Quick jump to components",
 	"icon": "icon.png",
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"publisher": "chrisdicarlo",
 	"repository": "https://github.com/chrisdicarlo/laravel-goto-components.git",
 	"engines": {
